@@ -56,7 +56,7 @@ app_dir(Module) ->
 	    {error, {cannot_find_module, Module}};
 	Module_Path ->
 	    %% packet shouldn't have ebin component in their name
-	    find_upper(Module_Path, "ebin")
+	    find_upper(filename:absname(Module_Path), "ebin")
     end.
 
 find_upper(Where, What) ->
